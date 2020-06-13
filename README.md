@@ -1,1 +1,5 @@
-# js_property_based_testing
+# typescript-testing-boilerplate
+
+```bash
+$ npm audit fix
+```
