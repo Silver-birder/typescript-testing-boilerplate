@@ -11,8 +11,8 @@ import {ItemRepository} from "./itemRepository";
     await client.start(uri);
 
     const itemRepository = new ItemRepository(client.client);
-    await itemRepository.insertItems([]);
-    await itemRepository.findItem();
+    await itemRepository.insertItems([{name: "sample", price: 200}, {name: "sample1", price: 1}]);
+    await itemRepository.findItemByPriceGreaterThan(10);
 
     await client.stop();
     await server.stop();

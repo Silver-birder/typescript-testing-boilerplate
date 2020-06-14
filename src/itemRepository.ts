@@ -14,14 +14,12 @@ class ItemRepository {
 
     async insertItems(items: any[]) {
         const itemModel = this._dbClient.model('Item', Item);
-        const model = new itemModel();
-        model.name = "sample";
-        await model.save();
+        await itemModel.collection.insertMany(items);
     }
 
-    async findItem() {
+    async findItemByPriceGreaterThan(gte: number) {
         const itemModel = this._dbClient.model('Item', Item);
-        const a = await itemModel.find({});
+        const a = await itemModel.find({price: {$gte: gte}});
         console.log(a);
     }
 }
