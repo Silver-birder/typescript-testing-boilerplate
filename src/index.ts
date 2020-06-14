@@ -11,7 +11,8 @@ import {ItemRepository} from "./itemRepository";
     await client.start(uri);
 
     const itemRepository = new ItemRepository(client.client);
-    console.log(itemRepository.findItem());
+    await itemRepository.insertItems([]);
+    await itemRepository.findItem();
 
     await client.stop();
     await server.stop();
