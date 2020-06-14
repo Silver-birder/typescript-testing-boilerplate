@@ -14,6 +14,9 @@ class ItemRepository {
 
     async insertItems(items: any[]) {
         const itemModel = this._dbClient.model('Item', Item);
+        if (items.length === 0) {
+            return;
+        }
         await itemModel.collection.insertMany(items);
     }
 
