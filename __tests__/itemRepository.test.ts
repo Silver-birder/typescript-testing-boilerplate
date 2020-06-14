@@ -12,22 +12,22 @@ beforeEach(async () => {
     client = new DbClient();
     await client.start(uri);
 });
-
 afterEach(async () => {
     await server.stop();
     await client.stop();
 });
 
 describe('itemRepository', () => {
-    it('', async () => {
-        fc.assert(
-            fc.property(fc.array(fc.integer()), (ns) => {
-                let data = ns.map( (n) => {
+    test('', async () => {
+        await fc.assert(
+            fc.asyncProperty(fc.array(fc.integer(101, 1000)), async (ns) => {
+                let data = ns.map((n) => {
                     return {name: "sample", price: n}
                 });
                 const itemRepository = new ItemRepository(client.client);
-                itemRepository.insertItems(data).then(() => {
-                });
+                await itemRepository.insertItems(data);
+                const result = await itemRepository.findItemByPriceGreaterThan(100);
+                expect(data.length).toBe(result.length);
             })
         );
     });

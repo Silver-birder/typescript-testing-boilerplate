@@ -20,10 +20,10 @@ class ItemRepository {
         await itemModel.collection.insertMany(items);
     }
 
-    async findItemByPriceGreaterThan(gte: number) {
+    async findItemByPriceGreaterThan(gte: number): Promise<any[]> {
         const itemModel = this._dbClient.model('Item', Item);
-        const a = await itemModel.find({price: {$gte: gte}});
-        console.log(a);
+        const data = await itemModel.find({price: {$gte: gte}});
+        return data;
     }
 }
 
