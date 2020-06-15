@@ -20,7 +20,7 @@ afterEach(async () => {
 describe('itemRepository', () => {
     test('', async () => {
         await fc.assert(
-            fc.asyncProperty(fc.array(fc.integer(101, 1000)), async (ns) => {
+            fc.asyncProperty(fc.array(fc.integer(100, 1000)), async (ns) => {
                 let data = ns.map((n) => {
                     return {name: "sample", price: n}
                 });
@@ -28,6 +28,8 @@ describe('itemRepository', () => {
                 await itemRepository.insertItems(data);
                 const result = await itemRepository.findItemByPriceGreaterThan(100);
                 expect(data.length).toBe(result.length);
+
+                await client.drop();
             })
         );
     });

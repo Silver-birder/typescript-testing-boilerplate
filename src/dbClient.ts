@@ -30,6 +30,11 @@ class DbClient {
         await this.client.disconnect();
         return;
     }
+
+    async drop() {
+        await mongoose.connection.db.dropDatabase();
+        return;
+    }
 }
 
 export {DbClient}
