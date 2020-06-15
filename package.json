@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Silver-birder/typescript-testing-boilerplate#readme",
   "devDependencies": {
     "@stryker-mutator/core": "^3.2.4",
+    "@stryker-mutator/jest-runner": "^3.2.4",
+    "@stryker-mutator/typescript": "^3.2.4",
     "@types/jest": "^24.9.1",
     "@types/mongoose": "^5.7.24",
     "@typescript-eslint/eslint-plugin": "^3.2.0",

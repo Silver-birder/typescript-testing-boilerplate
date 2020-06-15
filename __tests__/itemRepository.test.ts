@@ -18,16 +18,19 @@ afterEach(async () => {
 });
 
 describe('itemRepository', () => {
-    test('', async () => {
+    test('a', async () => {
         await fc.assert(
-            fc.asyncProperty(fc.array(fc.integer(100, 1000)), async (ns) => {
+            fc.asyncProperty(fc.array(fc.integer()), async (ns) => {
                 let data = ns.map((n) => {
                     return {name: "sample", price: n}
                 });
                 const itemRepository = new ItemRepository(client.client);
                 await itemRepository.insertItems(data);
+                const gte = data.filter((d) => {
+                   return d.price > 100;
+                });
                 const result = await itemRepository.findItemByPriceGreaterThan(100);
-                expect(data.length).toBe(result.length);
+                expect(gte.length).toBe(result.length);
 
                 await client.drop();
             })
