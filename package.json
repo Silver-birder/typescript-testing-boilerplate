@@ -8,7 +8,8 @@
     "build": "webpack",
     "size": "npm run build && size-limit",
     "cpd": "jscpd ./src/",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "lint": "eslint ./src/*"
   },
   "repository": {
     "type": "git",
@@ -29,13 +30,14 @@
     "@stryker-mutator/typescript": "^3.2.4",
     "@types/jest": "^24.9.1",
     "@types/mongoose": "^5.7.24",
-    "@typescript-eslint/eslint-plugin": "^3.2.0",
-    "@typescript-eslint/parser": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
     "babel-plugin-contracts": "^2.0.0",
     "backstopjs": "^5.0.1",
     "benchmark": "^2.1.4",
     "dont-break": "^1.13.4",
     "eslint": "^7.2.0",
+    "eslint-plugin-import": "^2.21.2",
     "fast-check": "^1.25.0",
     "jest": "^25.1.0",
     "jscpd": "^3.3.0-rc.8",
@@ -49,8 +51,8 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "mongoose": "^5.9.18",
-    "mongodb-memory-server": "^6.6.1"
+    "mongodb-memory-server": "^6.6.1",
+    "mongoose": "^5.9.18"
   },
   "size-limit": [
     {
