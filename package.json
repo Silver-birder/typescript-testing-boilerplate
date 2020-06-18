@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "size": "npm run build && size-limit"
+    "size": "npm run build && size-limit",
+    "cpd": "jscpd ./src/"
   },
   "repository": {
     "type": "git",
