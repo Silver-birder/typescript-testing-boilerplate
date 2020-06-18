@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack",
+    "build": "node esbuild.js",
     "size": "npm run build && size-limit",
     "cpd": "jscpd ./src/",
     "lhci": "lhci autorun",
@@ -36,6 +36,7 @@
     "backstopjs": "^5.0.1",
     "benchmark": "^2.1.4",
     "dont-break": "^1.13.4",
+    "esbuild": "^0.5.3",
     "eslint": "^7.2.0",
     "eslint-plugin-import": "^2.21.2",
     "fast-check": "^1.25.0",
@@ -45,12 +46,10 @@
     "ts-jest": "^25.0.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.10.2",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-node-externals": "^1.7.2"
+    "typescript": "^3.7.5"
   },
   "dependencies": {
+    "mongodb-client-encryption": "^1.0.1",
     "mongodb-memory-server": "^6.6.1",
     "mongoose": "^5.9.18"
   },
